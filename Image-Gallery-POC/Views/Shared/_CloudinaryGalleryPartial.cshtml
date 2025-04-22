@@ -1,0 +1,39 @@
+@Html.Partial("_GalleryHeaderPartial")
+
+<div class="card-body">
+    <div class="row">
+        @if (Model != null && Model.resources != null)
+        {
+            @foreach (var item in Model.resources)
+            {
+                <div class="col-md-3"> <!-- Adjust the column size based on your requirements -->
+                    <div class="card image-card mb-2">
+                        <div class="card-body">
+                            <div class="parent">
+                                <div class="child">
+                                    <img class="card-img-top gallery-image"
+                                         alt="@item.filename"
+                                         data-src="@item.url"
+                                         src="@item.url"
+                                         data-size="@item.bytes"
+                                         data-name="@item.filename"
+                                         data-url="@item.url"
+                                         loading="lazy">
+                                        
+                                    <a href="@item.url"
+                                       class="view-full-image"
+                                       data-type="image"
+                                       data-toggle="lightbox"
+                                       data-title="@item.filename"
+                                       data-footer="@item.public_id">
+                                        View Full Image
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

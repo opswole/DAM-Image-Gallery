@@ -1,0 +1,41 @@
+@model ThirdLightResponseModel
+
+@Html.Partial("_GalleryHeaderPartial")
+
+<div class="card-body">
+    <div class="row">
+        @if (Model != null && Model.Response != null)
+        {
+            @foreach (var item in Model.Response)
+            {
+                <div class="col-md-3"> <!-- Adjust the column size based on your requirements -->
+                    <div class="card image-card mb-2">
+                        <div class="card-body">
+                            <div class="parent">
+                                <div class="child">
+                                    <img class="card-img-top gallery-image"
+                                         alt="@item.Filename"
+                                         data-src="@item.Thumbnails.Medium.Url"
+                                         src="@item.Thumbnails.Medium.Url"
+                                         data-size="@item.FileSizeBytes"
+                                         data-name="@item.Filename"
+                                         data-url="@item.Thumbnails.Large.Url"
+                                         loading="lazy">
+
+                                    <a href="@item.Thumbnails.Large.Url"
+                                       class="view-full-image"
+                                       data-type="image"
+                                       data-toggle="lightbox"
+                                       data-title="@item.Filename"
+                                       data-footer="@item.Id">
+                                        View Full Image
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

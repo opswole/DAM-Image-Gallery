@@ -1,0 +1,42 @@
+@model GalleryViewModel
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            @if (Model.CloudinaryModel != null)
+            {
+                <h3>Cloudinary</h3>
+            }
+            @if (Model.ThirdLightModel != null)
+            {
+                <h3>ThirdLight</h3>
+            }
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+        @if (Model.CloudinaryModel != null)
+        {
+        @Html.Partial("_CloudinaryGalleryPartial", Model.CloudinaryModel)
+        }
+        @if (Model.ThirdLightModel != null)
+        {
+        @Html.Partial("_ThirdLightGalleryPartial", Model.ThirdLightModel)
+        }
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        const processImageUrl = '@Url.Action("ProcessImage", "ImageProcessing")';
+    </script>
+    <script>
+        const processImageUrlInMemory = '@Url.Action("ProcessImageInMemoryStream", "ImageProcessing")';
+    </script>
+    
+}

@@ -1,0 +1,11 @@
+/.idea
+.env
+.DS_store
+/node_modules
+Image-Gallery-POC/bower_components/
+
+Image-Gallery-POC/bower.json
+/Image-Gallery-POC/node_modules/
+Image-Gallery-POC/.vs
+Image-Gallery-POC/obj
+*.user
